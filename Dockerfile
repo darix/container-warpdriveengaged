@@ -7,11 +7,11 @@ RUN zypper --gpg-auto-import-keys ref
 
 RUN zypper install -y warpdriveengaged-ruby util-linux shadow
 
-RUN groupadd --gid 64536 -r wardriveengaged && useradd --uid 64536 --no-log-init -r -g wardriveengaged wardriveengaged
-RUN install -o wardriveengaged -g wardriveengaged -D -d /home/wardriveengaged ; install -o wardriveengaged -g wardriveengaged -D -d /home/wardriveengaged/bin
+RUN groupadd --gid 64536 -r warpdriveengaged && useradd --uid 64536 --no-log-init -r -g warpdriveengaged warpdriveengaged
+RUN install -o warpdriveengaged -g warpdriveengaged -D -d /home/warpdriveengaged ; install -o warpdriveengaged -g warpdriveengaged -D -d /home/warpdriveengaged/bin
 
-USER wardriveengaged:wardriveengaged
-WORKDIR /home/wardriveengaged
+USER warpdriveengaged:warpdriveengaged
+WORKDIR /home/warpdriveengaged
 EXPOSE 9292/tcp
 CMD ["/usr/bin/puma", "--dir", "/usr/share/warpdriveengaged-ruby/"]
 
